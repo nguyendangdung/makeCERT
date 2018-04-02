@@ -36,7 +36,7 @@ namespace converCERT
             process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             process.Start();
 
-            process.StandardInput.Write(string.Format(cmd, _key, _cert));
+            process.StandardInput.Write(string.Format(cmd, outFile, _key, _cert));
         }
 
         private void certBtn_Click(object sender, EventArgs e)
