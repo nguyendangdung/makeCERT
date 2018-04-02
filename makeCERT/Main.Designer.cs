@@ -29,51 +29,51 @@
         private void InitializeComponent()
         {
             this.genCertBtn = new System.Windows.Forms.Button();
+            this.consoleTxt = new System.Windows.Forms.TextBox();
             this.hostNameTextBox = new System.Windows.Forms.TextBox();
             this.emailTextBox = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button1
+            // genCertBtn
             // 
             this.genCertBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.genCertBtn.Location = new System.Drawing.Point(333, 15);
-            this.genCertBtn.Name = "button1";
+            this.genCertBtn.Name = "genCertBtn";
             this.genCertBtn.Size = new System.Drawing.Size(89, 56);
             this.genCertBtn.TabIndex = 0;
             this.genCertBtn.Text = "Gen CERT";
             this.genCertBtn.UseVisualStyleBackColor = true;
             this.genCertBtn.Click += new System.EventHandler(this.genCertBtn_Click);
             // 
+            // consoleTxt
+            // 
+            this.consoleTxt.Location = new System.Drawing.Point(15, 87);
+            this.consoleTxt.Multiline = true;
+            this.consoleTxt.Name = "consoleTxt";
+            this.consoleTxt.Size = new System.Drawing.Size(407, 192);
+            this.consoleTxt.TabIndex = 1;
+            // 
             // hostNameTextBox
             // 
-            this.hostNameTextBox.Location = new System.Drawing.Point(15, 87);
-            this.hostNameTextBox.Multiline = true;
+            this.hostNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hostNameTextBox.Location = new System.Drawing.Point(105, 15);
             this.hostNameTextBox.Name = "hostNameTextBox";
-            this.hostNameTextBox.Size = new System.Drawing.Size(407, 192);
-            this.hostNameTextBox.TabIndex = 1;
+            this.hostNameTextBox.Size = new System.Drawing.Size(212, 23);
+            this.hostNameTextBox.TabIndex = 2;
+            this.hostNameTextBox.Text = "example";
+            this.hostNameTextBox.TextChanged += new System.EventHandler(this.hostNameTxt_TextChanged);
             // 
-            // textBox2
+            // emailTextBox
             // 
             this.emailTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailTextBox.Location = new System.Drawing.Point(105, 15);
-            this.emailTextBox.Name = "textBox2";
+            this.emailTextBox.Location = new System.Drawing.Point(105, 48);
+            this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(212, 23);
-            this.emailTextBox.TabIndex = 2;
-            this.emailTextBox.Text = "example";
-            this.emailTextBox.TextChanged += new System.EventHandler(this.hostNameTxt_TextChanged);
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(105, 48);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(212, 23);
-            this.textBox3.TabIndex = 3;
-            this.textBox3.Text = "webmaster@example.com";
-            this.textBox3.TextChanged += new System.EventHandler(this.emailTxt_TextChanged);
+            this.emailTextBox.TabIndex = 3;
+            this.emailTextBox.Text = "webmaster@example.com";
+            this.emailTextBox.TextChanged += new System.EventHandler(this.emailTxt_TextChanged);
             // 
             // label1
             // 
@@ -102,15 +102,16 @@
             this.ClientSize = new System.Drawing.Size(437, 319);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.emailTextBox);
             this.Controls.Add(this.hostNameTextBox);
+            this.Controls.Add(this.consoleTxt);
             this.Controls.Add(this.genCertBtn);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Main";
             this.Text = "makeCERT";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
+            this.Load += new System.EventHandler(this.Main_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -119,9 +120,9 @@
         #endregion
 
         private System.Windows.Forms.Button genCertBtn;
+        private System.Windows.Forms.TextBox consoleTxt;
         private System.Windows.Forms.TextBox hostNameTextBox;
         private System.Windows.Forms.TextBox emailTextBox;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
     }

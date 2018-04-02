@@ -98,21 +98,23 @@ openssl req -new -x509 -newkey rsa:2048 -sha256 -nodes -keyout %HOSTNAME%.key -d
         delegate void SetTextCallback(string text);
         private void SetText(string text)
         {
-            if (this.hostNameTextBox.InvokeRequired)
+            if (this.consoleTxt.InvokeRequired)
             {
                 SetTextCallback d = new SetTextCallback(SetText);
                 this.Invoke(d, new object[] { text });
             }
             else
             {
-                this.hostNameTextBox.Text += text + Environment.NewLine;
+                this.consoleTxt.Text += text + Environment.NewLine;
             }
         }
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            process.StandardInput.WriteLine("exit");
-            process.Close();
-
+            if (process != null)
+            {
+                process.StandardInput.WriteLine("exit");
+                process.Close();
+            }
         }
 
         private void hostNameTxt_TextChanged(object sender, EventArgs e)
@@ -123,6 +125,11 @@ openssl req -new -x509 -newkey rsa:2048 -sha256 -nodes -keyout %HOSTNAME%.key -d
         private void emailTxt_TextChanged(object sender, EventArgs e)
         {
             _email = emailTextBox.Text;
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
